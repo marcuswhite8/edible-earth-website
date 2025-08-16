@@ -916,17 +916,21 @@ input:focus {
 /* Responsive Design */
 @media (max-width: 768px) {
     .glass-card {
-        padding: 30px 15px;
-        margin: 20px 10px;
+        padding: 40px 20px;
+        margin: 40px auto;
+        width: calc(100% - 40px);
+        max-width: 500px;
         height: auto;
-        min-height: 500px;
+        min-height: 600px;
     }
     
     .address, .payment {
-        padding: 30px 15px;
-        margin: 20px 10px;
+        padding: 40px 20px;
+        margin: 40px auto;
+        width: calc(100% - 40px);
+        max-width: 500px;
         height: auto;
-        min-height: 550px;
+        min-height: 650px;
     }
     
     .hero-buttons {
@@ -943,32 +947,61 @@ input:focus {
         grid-template-columns: 1fr;
         gap: 30px;
         height: auto;
+        text-align: center;
     }
     
     .product-details {
         height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     
     .product-details h2 {
-        font-size: 28px;
+        font-size: 24px;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        line-height: 1.3;
     }
     
     .features {
         grid-template-columns: 1fr;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .feature {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .feature p {
+        font-size: 13px;
+        line-height: 1.4;
     }
     
     .description {
         height: auto;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        font-size: 14px;
+        text-align: center;
     }
     
     .product-size-info {
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+    
+    .product-size-info p {
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: center;
     }
     
     .floating-cream {
