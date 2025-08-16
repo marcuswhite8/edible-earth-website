@@ -214,10 +214,7 @@ body::after {
 }
 
 .floating-cream {
-    display: block;
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
+    display: none; /* Hidden on desktop since background image is used */
 }
 
 .glow {
