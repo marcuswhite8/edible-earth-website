@@ -943,6 +943,14 @@ input:focus {
         padding: 20px;
     }
     
+    .floating-cream {
+        display: none;
+    }
+    
+    .floating-cream-container {
+        display: none;
+    }
+    
     .glass-card {
         padding: 30px 20px;
         margin: 20px auto;
