@@ -920,8 +920,16 @@ input:focus {
     }
     
     body::before {
-        background-size: cover;
+        background-size: 80vh;
         background-position: center center;
+        background-repeat: no-repeat;
+    }
+    
+    body::after {
+        background: linear-gradient(135deg, 
+            rgba(255, 248, 243, 0.2) 0%, 
+            rgba(255, 228, 225, 0.2) 50%, 
+            rgba(245, 230, 211, 0.2) 100%);
     }
     
     .container {
@@ -931,7 +939,9 @@ input:focus {
     }
     
     .container.cherry::before,
-    .container.lavender::before {
+    .container.cherry::after,
+    .container.lavender::before,
+    .container.lavender::after {
         display: none;
     }
     
