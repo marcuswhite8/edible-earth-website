@@ -920,11 +920,12 @@ input:focus {
     }
     
     body {
-        background-image: url('cream-pot-mobile.png');
-        background-size: 80vh;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-image: url('cream-pot-mobile.png'), url('cream-pot.png');
+        background-size: 80vh, 80vh;
+        background-position: center center, center center;
+        background-repeat: no-repeat, no-repeat;
+        background-attachment: fixed, fixed;
+        background-color: #FFF8F3;
     }
     
     body::before,
