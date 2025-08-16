@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edible Earth - Natural Deodorant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js"></script>
+</head>
+<body>
+    <!-- Navigation arrows -->
+    <div class="nav-arrow right" onclick="slideToLavender()">→</div>
+    <div class="nav-arrow left" onclick="slideToCherry()">←</div>
+    
+    <!-- Fixed Bottom Cart -->
+    <div class="fixed-cart" id="fixedCart">
+        <div class="cart-header" onclick="toggleCart()">
+            <div class="cart-summary">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count" id="cartCount">0</span>
+                <span class="cart-total" id="cartTotal">£0.00</span>
+            </div>
+            <div class="cart-toggle">
+                <span id="cartToggleIcon">▲</span>
+            </div>
+        </div>
+        
+        <div class="cart-content" id="cartContent">
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn btn-primary" onclick="proceedToCheckout()" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-container" id="mainContainer">
+        <!-- Cherry Blossom Page -->
+        <div class="container cherry" id="cherryPage">
+        <!-- Hero Section with Floating Cream Pot -->
+        <section class="hero">
+            <div class="floating-cream-container">
+                <img src="cream-pot.png" alt="Natural Deodorant Cream" class="floating-cream" id="creamPot">
+                <div class="glow"></div>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="addToCart('cherry')">Add to Cart</button>
+                <button class="btn btn-secondary" onclick="showLearnMore()">Learn More</button>
+            </div>
+        </section>
+
+        <!-- Learn More Section -->
+        <section class="learn-more glass-card" id="learnMore">
+            <div class="product-info">
+                <div class="product-image">
+                    <img src="cream-pot-white-bg.png" alt="Natural Deodorant Details">
+                </div>
+                <div class="product-details">
+                    <h2>Pure Natural Deodorant</h2>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="icon">🌿</span>
+                            <p>100% Natural Ingredients</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">🥥</span>
+                            <p>Coconut Oil & Tallow Base</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">🌸</span>
+                            <p>Cherry Blossom Scent</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">✨</span>
+                            <p>All ingredients edible (except essential oil)</p>
+                        </div>
+                    </div>
+                    <p class="description">
+                        Our cream deodorant combines the moisturizing power of coconut oil and tallow 
+                        with corn starch for a smooth texture and baking soda for effective odor protection. 
+                        Delicately scented with cherry blossom essential oil.
+                    </p>
+                    <div class="product-size-info">
+                        <p><strong>60g jar</strong> • Lasts approximately 3 months with daily use</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart('cherry')">Add to Cart - £8.99</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section -->
+        <section class="checkout glass-card" id="checkout">
+            <div class="checkout-flow">
+                <!-- Step 1: Cart -->
+                <div class="checkout-step" id="cartStep">
+                    <h3>Your Cart</h3>
+                    <div class="cart-item">
+                        <img src="cream-pot-white-bg.png" alt="Natural Deodorant" class="cart-thumbnail">
+                        <div class="cart-details">
+                            <h4>Natural Deodorant Cream</h4>
+                            <p>Cherry Blossom Scent • 60g jar</p>
+                        </div>
+                        <div class="quantity-control">
+                            <button onclick="updateQuantity(-1)">-</button>
+                            <span id="quantity">1</span>
+                            <button onclick="updateQuantity(1)">+</button>
+                        </div>
+                        <div class="price">
+                            £<span id="totalPrice">8.99</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Express Checkout Options -->
+                    <div class="express-checkout">
+                        <h4>Express Checkout</h4>
+                        <div class="express-buttons">
+                            <button class="apple-pay-button" onclick="applePayCheckout()"></button>
+                            <button class="google-pay-button" onclick="googlePayCheckout()">
+                                <img src="https://www.gstatic.com/instantbuy/svg/dark_gpay.svg" alt="Google Pay">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>or continue with regular checkout</span>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="showAddressCard()">Continue to Shipping</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Address Section -->
+        <section class="address glass-card" id="addressCard">
+            <div class="checkout-step">
+                <h3>Shipping Information</h3>
+                <form id="shippingForm">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Street Address" required>
+                    <input type="text" placeholder="Apartment, suite, etc. (optional)">
+                    <div class="form-row">
+                        <input type="text" placeholder="City" required>
+                        <input type="text" placeholder="State" required>
+                        <input type="text" placeholder="ZIP Code" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Continue to Payment</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section class="payment glass-card" id="paymentCard">
+            <div class="checkout-step">
+                <h3>Payment</h3>
+                <div class="order-summary">
+                    <p>Subtotal: £<span class="subtotal">8.99</span></p>
+                    <p>Shipping: FREE</p>
+                    <p class="total">Total: £<span class="final-total">8.99</span></p>
+                </div>
+                
+                <div class="payment-methods">
+                    <div class="express-buttons">
+                        <button class="apple-pay-button" onclick="applePayCheckout()"></button>
+                        <button class="google-pay-button" onclick="googlePayCheckout()">
+                            <img src="https://www.gstatic.com/instantbuy/svg/dark_gpay.svg" alt="Google Pay">
+                        </button>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>or pay with card</span>
+                    </div>
+                    
+                    <form id="paymentForm">
+                        <input type="text" placeholder="Card Number" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="MM/YY" required>
+                            <input type="text" placeholder="CVV" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Complete Order</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- Lavender Page -->
+        <div class="container lavender" id="lavenderPage">
+        <!-- Hero Section with Floating Cream Pot -->
+        <section class="hero">
+            <div class="floating-cream-container">
+                <img src="cream-pot-lavender.png" alt="Natural Deodorant Cream - Lavender" class="floating-cream" id="creamPotLavender">
+                <div class="glow"></div>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary lavender-theme" onclick="addToCart('lavender')">Add to Cart</button>
+                <button class="btn btn-secondary lavender-theme" onclick="showLearnMoreLavender()">Learn More</button>
+            </div>
+        </section>
+
+        <!-- Learn More Section - Lavender -->
+        <section class="learn-more glass-card lavender-theme" id="learnMoreLavender">
+            <div class="product-info">
+                <div class="product-image">
+                    <img src="cream-pot-lavender-white-bg.png" alt="Natural Deodorant Details - Lavender">
+                </div>
+                <div class="product-details">
+                    <h2>Pure Natural Deodorant - Lavender</h2>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="icon">🌿</span>
+                            <p>100% Natural Ingredients</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">🥥</span>
+                            <p>Coconut Oil & Tallow Base</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">💜</span>
+                            <p>Calming Lavender Scent</p>
+                        </div>
+                        <div class="feature">
+                            <span class="icon">✨</span>
+                            <p>All ingredients edible (except essential oil)</p>
+                        </div>
+                    </div>
+                    <p class="description">
+                        Our lavender cream deodorant combines the moisturizing power of coconut oil and tallow 
+                        with corn starch for a smooth texture and baking soda for effective odor protection. 
+                        Infused with calming lavender essential oil for a soothing, relaxing scent.
+                    </p>
+                    <div class="product-size-info">
+                        <p><strong>60g jar</strong> • Lasts approximately 3 months with daily use</p>
+                    </div>
+                    <button class="btn btn-primary lavender-theme" onclick="addToCart('lavender')">Add to Cart - £8.99</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkout Section - Lavender -->
+        <section class="checkout glass-card lavender-theme" id="checkoutLavender">
+            <div class="checkout-flow">
+                <div class="checkout-step" id="cartStepLavender">
+                    <h3>Your Cart</h3>
+                    <div class="cart-item">
+                        <img src="cream-pot-lavender-white-bg.png" alt="Natural Deodorant - Lavender" class="cart-thumbnail">
+                        <div class="cart-details">
+                            <h4>Natural Deodorant Cream - Lavender</h4>
+                            <p>Calming Lavender Scent • 60g jar</p>
+                        </div>
+                        <div class="quantity-control">
+                            <button onclick="updateQuantityLavender(-1)">-</button>
+                            <span id="quantityLavender">1</span>
+                            <button onclick="updateQuantityLavender(1)">+</button>
+                        </div>
+                        <div class="price">
+                            £<span id="totalPriceLavender">8.99</span>
+                        </div>
+                    </div>
+                    
+                    <div class="express-checkout">
+                        <h4>Express Checkout</h4>
+                        <div class="express-buttons">
+                            <button class="apple-pay-button" onclick="applePayCheckout()"></button>
+                            <button class="google-pay-button" onclick="googlePayCheckout()">
+                                <img src="https://www.gstatic.com/instantbuy/svg/dark_gpay.svg" alt="Google Pay">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>or continue with regular checkout</span>
+                    </div>
+                    
+                    <button class="btn btn-primary lavender-theme" onclick="showAddressCardLavender()">Continue to Shipping</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Address Section - Lavender -->
+        <section class="address glass-card lavender-theme" id="addressCardLavender">
+            <div class="checkout-step">
+                <h3>Shipping Information</h3>
+                <form id="shippingFormLavender">
+                    <div class="form-row">
+                        <input type="text" placeholder="First Name" required>
+                        <input type="text" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Street Address" required>
+                    <input type="text" placeholder="Apartment, suite, etc. (optional)">
+                    <div class="form-row">
+                        <input type="text" placeholder="City" required>
+                        <input type="text" placeholder="State" required>
+                        <input type="text" placeholder="ZIP Code" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary lavender-theme">Continue to Payment</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Payment Section - Lavender -->
+        <section class="payment glass-card lavender-theme" id="paymentCardLavender">
+            <div class="checkout-step">
+                <h3>Payment</h3>
+                <div class="order-summary">
+                    <p>Subtotal: $<span class="subtotalLavender">18.99</span></p>
+                    <p>Shipping: FREE</p>
+                    <p class="total">Total: $<span class="final-totalLavender">18.99</span></p>
+                </div>
+                
+                <div class="payment-methods">
+                    <div class="express-buttons">
+                        <button class="apple-pay-button" onclick="applePayCheckout()"></button>
+                        <button class="google-pay-button" onclick="googlePayCheckout()">
+                            <img src="https://www.gstatic.com/instantbuy/svg/dark_gpay.svg" alt="Google Pay">
+                        </button>
+                    </div>
+                    
+                    <div class="divider">
+                        <span>or pay with card</span>
+                    </div>
+                    
+                    <form id="paymentFormLavender">
+                        <input type="text" placeholder="Card Number" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="MM/YY" required>
+                            <input type="text" placeholder="CVV" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary lavender-theme">Complete Order</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

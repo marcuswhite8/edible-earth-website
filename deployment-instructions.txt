@@ -1,0 +1,27 @@
+GODADDY HOSTING SETUP FOR EDIBLE EARTH
+=====================================
+
+STEP 1: Upload Files
+- Log into your GoDaddy cPanel
+- Go to File Manager
+- Navigate to public_html folder
+- Upload ALL files (index.html, styles.css, script.js, all images, .htaccess, .htpasswd)
+
+STEP 2: Password Protection Setup
+- The .htaccess file will password protect your site
+- Login credentials: username "admin", password "edible2024"
+- Visitors must enter these to view the site
+
+STEP 3: Update .htpasswd Path
+- In cPanel File Manager, note your full path (usually /home/yourusername/public_html/)
+- Edit the .htaccess file and replace "/home/yourusername/public_html/.htpasswd" with your actual path
+
+STEP 4: Test
+- Visit edibleearth.co.uk
+- You should see a password prompt
+- Enter admin/edible2024 to access the site
+
+STEP 5: When Ready to Go Live
+- Simply delete or rename the .htaccess file to remove password protection
+
+Note: All images and files are ready for upload. The site uses relative paths so it will work immediately on your domain.
