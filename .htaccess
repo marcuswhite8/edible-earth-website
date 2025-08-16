@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Edible Earth Development Site"
+AuthUserFile /home/yourusername/public_html/.htpasswd
+Require valid-user
