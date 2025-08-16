@@ -918,6 +918,21 @@ input:focus {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body::before {
+        background-size: contain;
+        background-position: center top;
+    }
+    
+    .container.cherry::before {
+        background-size: contain;
+        background-position: center top;
+    }
+    
+    .container.lavender::before {
+        background-size: contain;
+        background-position: center top;
+    }
+    
     .glass-card {
         padding: 40px 20px;
         margin: 40px auto;
