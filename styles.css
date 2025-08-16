@@ -919,18 +919,18 @@ input:focus {
 /* Responsive Design */
 @media (max-width: 768px) {
     body::before {
-        background-size: contain;
-        background-position: center top;
+        background-size: 80vh;
+        background-position: center center;
     }
     
     .container.cherry::before {
-        background-size: contain;
-        background-position: center top;
+        background-size: 80vh;
+        background-position: center center;
     }
     
     .container.lavender::before {
-        background-size: contain;
-        background-position: center top;
+        background-size: 80vh;
+        background-position: center center;
     }
     
     .glass-card {
