@@ -919,6 +919,14 @@ input:focus {
         overflow-x: hidden;
     }
     
+    body {
+        background-image: url('cream-pot-mobile.png');
+        background-size: 80vh;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
     body::before,
     body::after {
         display: none;
@@ -928,24 +936,11 @@ input:focus {
         position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        background: transparent;
     }
     
-    .container.cherry::before {
-        background-image: url('cream-pot-mobile.png');
-        background-size: 90vh;
-        background-position: center center;
-        background-repeat: no-repeat;
-        display: block;
-    }
-    
-    .container.cherry::after {
-        background: linear-gradient(135deg, 
-            rgba(255, 248, 243, 0.3) 0%, 
-            rgba(255, 228, 225, 0.2) 50%, 
-            rgba(245, 230, 211, 0.3) 100%);
-        display: block;
-    }
-    
+    .container.cherry::before,
+    .container.cherry::after,
     .container.lavender::before,
     .container.lavender::after {
         display: none;
