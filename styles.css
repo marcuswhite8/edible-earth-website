@@ -917,48 +917,29 @@ input:focus {
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
-        background: #FFF8F3;
+        background-image: url('cream-pot.png') !important;
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+        background-color: #FFF8F3 !important;
     }
     
     body::before,
     body::after {
-        display: none;
+        display: none !important;
     }
     
     .container {
         position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        background: transparent !important;
     }
     
-    .container.cherry::before {
-        background-image: url('cream-pot.png');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-    
-    .container.cherry::after {
-        background: linear-gradient(135deg, 
-            rgba(255, 248, 243, 0.4) 0%, 
-            rgba(255, 228, 225, 0.3) 50%, 
-            rgba(245, 230, 211, 0.4) 100%);
-    }
-    
-    .container.lavender::before {
-        background-image: url('cream-pot-lavender.png');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-    
-    .container.lavender::after {
-        background: linear-gradient(135deg, 
-            rgba(243, 240, 255, 0.4) 0%, 
-            rgba(228, 217, 255, 0.3) 50%, 
-            rgba(230, 211, 245, 0.4) 100%);
+    .container::before,
+    .container::after {
+        display: none !important;
     }
     
     .hero {
