@@ -918,36 +918,47 @@ input:focus {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
     body::before {
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .container {
+        position: relative;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .container.cherry::before,
+    .container.lavender::before {
         display: none;
     }
     
-    .container.cherry::before {
-        background-size: 120vh;
-        background-position: center center;
-    }
-    
-    .container.lavender::before {
-        background-size: 120vh;
-        background-position: center center;
+    .hero {
+        min-height: 100vh;
+        padding: 20px;
     }
     
     .glass-card {
-        padding: 40px 20px;
-        margin: 40px auto;
+        padding: 30px 20px;
+        margin: 20px auto;
         width: calc(100% - 40px);
-        max-width: 500px;
+        max-width: 90%;
         height: auto;
-        min-height: 600px;
+        min-height: auto;
     }
     
     .address, .payment {
-        padding: 40px 20px;
-        margin: 40px auto;
+        padding: 30px 20px;
+        margin: 20px auto;
         width: calc(100% - 40px);
-        max-width: 500px;
+        max-width: 90%;
         height: auto;
-        min-height: 650px;
+        min-height: auto;
     }
     
     .hero-buttons {
