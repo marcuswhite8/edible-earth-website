@@ -917,15 +917,7 @@ input:focus {
 @media (max-width: 768px) {
     body {
         overflow-x: hidden;
-    }
-    
-    body {
-        background-image: url('cream-pot-mobile.png'), url('cream-pot.png');
-        background-size: 80vh, 80vh;
-        background-position: center center, center center;
-        background-repeat: no-repeat, no-repeat;
-        background-attachment: fixed, fixed;
-        background-color: #FFF8F3;
+        background: #FFF8F3;
     }
     
     body::before,
@@ -937,14 +929,36 @@ input:focus {
         position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        background: transparent;
     }
     
-    .container.cherry::before,
-    .container.cherry::after,
-    .container.lavender::before,
+    .container.cherry::before {
+        background-image: url('cream-pot.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    .container.cherry::after {
+        background: linear-gradient(135deg, 
+            rgba(255, 248, 243, 0.4) 0%, 
+            rgba(255, 228, 225, 0.3) 50%, 
+            rgba(245, 230, 211, 0.4) 100%);
+    }
+    
+    .container.lavender::before {
+        background-image: url('cream-pot-lavender.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
     .container.lavender::after {
-        display: none;
+        background: linear-gradient(135deg, 
+            rgba(243, 240, 255, 0.4) 0%, 
+            rgba(228, 217, 255, 0.3) 50%, 
+            rgba(230, 211, 245, 0.4) 100%);
     }
     
     .hero {
@@ -979,13 +993,17 @@ input:focus {
     }
     
     .hero-buttons {
-        margin-top: -5vh;
+        margin-top: 2vh;
         gap: 15px;
+        flex-direction: column;
+        align-items: center;
     }
     
     .btn {
-        padding: 12px 30px;
-        font-size: 14px;
+        padding: 15px 40px;
+        font-size: 16px;
+        width: 200px;
+        text-align: center;
     }
     
     .product-info {
@@ -1069,11 +1087,11 @@ input:focus {
     }
     
     .fixed-cart.visible.expanded {
-        height: calc(70px + 40vh);
+        height: calc(70px + 50vh);
     }
     
     .fixed-cart.preview-expand {
-        height: calc(70px + 35vh);
+        height: calc(70px + 40vh);
     }
     
     .cart-item-row {
