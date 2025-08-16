@@ -919,17 +919,16 @@ input:focus {
 /* Responsive Design */
 @media (max-width: 768px) {
     body::before {
-        background-size: 80vh;
-        background-position: center center;
+        display: none;
     }
     
     .container.cherry::before {
-        background-size: 80vh;
+        background-size: 120vh;
         background-position: center center;
     }
     
     .container.lavender::before {
-        background-size: 80vh;
+        background-size: 120vh;
         background-position: center center;
     }
     
