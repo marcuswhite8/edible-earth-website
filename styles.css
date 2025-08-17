@@ -930,7 +930,7 @@ input:focus {
     }
     
     .main-container {
-        background-image: url('cream-pot.png');
+        background-image: url('cream-pot-mobile.png');
         background-size: auto 100vh;
         background-position: center center;
         background-repeat: no-repeat;
