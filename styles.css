@@ -917,8 +917,12 @@ input:focus {
 @media (max-width: 768px) {
     body {
         background-color: #FFF8F3;
-        overflow-x: hidden;
-        overflow-y: auto;
+        background-image: url('cream-pot-mobile.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: visible;
     }
     
     body::before {
@@ -930,17 +934,14 @@ input:focus {
     }
     
     .main-container {
-        background-image: url('cream-pot-mobile.png');
-        background-size: auto 100vh;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        background: transparent;
         min-height: 100vh;
     }
     
     .container {
         position: relative;
         background: transparent;
+        overflow: visible;
     }
     
     .container::before,
