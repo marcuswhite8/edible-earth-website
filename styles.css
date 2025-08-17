@@ -931,10 +931,10 @@ input:focus {
     
     .main-container {
         background-image: url('cream-pot.png');
-        background-size: 100vw auto;
-        background-position: center top;
+        background-size: auto 100vh;
+        background-position: center center;
         background-repeat: no-repeat;
-        background-attachment: scroll;
+        background-attachment: fixed;
         min-height: 100vh;
     }
     
