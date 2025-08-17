@@ -918,11 +918,12 @@ input:focus {
     body {
         overflow-x: hidden;
         background-image: url('cream-pot.png') !important;
-        background-size: contain !important;
-        background-position: center center !important;
+        background-size: cover !important;
+        background-position: center top !important;
         background-repeat: no-repeat !important;
-        background-attachment: fixed !important;
+        background-attachment: scroll !important;
         background-color: #FFF8F3 !important;
+        min-height: 100vh;
     }
     
     body::before,
